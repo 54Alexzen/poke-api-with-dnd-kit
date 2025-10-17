@@ -1,73 +1,109 @@
-# React + TypeScript + Vite
+<img width="1920" height="1080" alt="Pokemon-bg" src="https://github.com/user-attachments/assets/964ac130-2720-4eb5-a7b9-95e929574740" />
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1 align="center">Pokemón API con DnD/Kit</h1>
 
-Currently, two official plugins are available:
+Proyecto interactivo desarrollado con **React**, **TypeScript** y **Vite**, que implementa funcionalidad de **arrastrar y soltar (Drag & Drop)** usando **Dnd Kit**, además de consumir datos en tiempo real desde la **PokéAPI**.  
+Incluye un **componente reutilizable**, estructura **modular** y un enfoque **tipado y escalable**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Características
 
-## React Compiler
+- Desarrollado con **Vite + React + TypeScript**
+- **Componente reutilizable** con **Dnd Kit**
+- Arquitectura **modular y limpia**
+- Consumo de datos desde la **PokéAPI**
+- Gestión de temas y configuración UI
+- Soporte de variables de entorno (`.env`)
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## Tecnologías Principales
 
-## Expanding the ESLint configuration
+- **React 18+**
+- **TypeScript**
+- **Vite**
+- **Dnd Kit**
+- **PokéAPI**
+- **Tailwind CSS**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Estructura del Proyecto
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+src/
+│
+├── assets/                  # Recursos estáticos (imágenes, íconos, etc.)
+│
+├── components/              # Componentes reutilizables
+│   ├── elements/            # Elementos atómicos o genéricos de UI
+│   ├── theme/               # Componentes de configuración de tema
+│   └── ui/                  # Bloques visuales o layouts
+│
+├── config/
+│   └── environments-config.ts   # Configuración de variables de entorno
+│
+├── constants/
+│   └── api-constant.ts          # Constantes de API (URLs, endpoints, etc.)
+│
+├── hooks/
+│   └── useGetPokemons.ts        # Hook personalizado para obtener Pokémons
+│
+├── pages/
+│   └── Home.tsx                 # Página principal
+│
+├── service/
+│   ├── api-service.ts           # Lógica genérica de consumo API
+│   └── pokemon-service.ts       # Lógica específica para PokéAPI
+│
+├── types/
+│   ├── pokemon-types.ts         # Tipos e interfaces de Pokémon
+│   └── theme-types.ts           # Tipos para el sistema de temas
+│
+├── utils/
+│   ├── colors-badges.ts         # Colores asociados a tipos de Pokémon
+│   ├── extract-id.ts            # Utilidad para extraer IDs de Pokémon
+│   └── fetch-pokemon.ts         # Helper para peticiones a la API
+│
+├── App.tsx
+├── main.tsx
+├── globals.css
+└── global.d.ts
+```
+## Instalación y Ejecución
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Asegúrate de tener instalado:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js (versión 18 o superior)
+- npm o yarn
+
+## Instalación del proyecto
+
+1. Clonar el repositorio
+```bash
+git clone https://github.com/54Alexzen/poke-api-with-dnd-kit.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Entrar al directorio del proyecto
+```bash
+cd poke-api-with-dnd-kit
 ```
+
+4. Instalar dependencias
+```bash
+npm install
+```
+5. Crear el archivo de entorno (.env) en la raíz del proyecto y agrega la siguiente variable:
+```bash
+VITE_API_URL=https://pokeapi.co/api/v2
+```
+
+## Ejecución del proyecto
+
+Inicia el entorno de desarrollo con:
+```bash
+npm run dev
+```
+El proyecto se ejecutará en:
+```bash
+http://localhost:5173
+```
+
+## Authors
+
+- [@54Alexzen](https://www.github.com/54Alexzen)
